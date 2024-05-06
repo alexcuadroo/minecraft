@@ -1,0 +1,115 @@
+/* abeezee-latin-400-normal */
+@font-face {
+    font-family: 'ABeeZee';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 400;
+    src: url(https://cdn.jsdelivr.net/fontsource/fonts/abeezee@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/abeezee@latest/latin-400-normal.woff) format('woff');
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  }
+  :root {
+    --color-primario: #121214; /* Define la variable de color primario */
+  }
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-primario);
+    color: white;
+    font-family: ABeeZee;
+}
+
+header {
+    background-color: var(--color-primario);
+    
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-primario);
+    padding: 15px;
+    max-width: 1400px;
+    margin: auto;
+}
+.navbar .logo {
+    color: #f2f2f2;
+    text-decoration: none;
+}
+.navbar .title {
+    color: #f2f2f2;
+    font-size: 20px;
+}
+h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 50px;
+    color: #27972b
+}
+
+main {
+    padding: 20px;
+}
+.new {
+    background-color: #972727;
+    padding: 2px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+#versiones {
+    background-color: #000068;
+    border-radius: 9px;
+    padding: 20px;
+    margin: 10px;
+    width: 60dvw;
+    transition: box-shadow 0.3s ease-in-out;
+}
+#pasado {
+    background-color: #000035;
+    border-radius: 9px;
+    padding: 20px;
+    margin: 10px;
+    width: 60dvw;
+    transition: box-shadow 0.3s ease-in-out;
+}
+#antiguo {
+    background-color: #000068;
+}
+#versiones:hover {
+    box-shadow: 0px 0px 20px #00518e;
+
+}
+#fecha {
+    color: #27972b;
+    font-weight: bold;
+    font-size: 20px;
+}
+#ip {
+    color: #27972b;
+}
+
+footer {
+    background-color: var(--color-primario);
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+button {
+    background-color: #1c691e;
+    border: none;
+    color: white; 
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 7px;
+}
+
+button:hover {
+    background-color: #a11111;
+    color: white; 
+}
