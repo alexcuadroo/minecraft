@@ -5,7 +5,7 @@ const tarjetas = [
         pastilla1: "Nuevo",
         descargarSi: "si",
         instrucciones: [
-            "Borraaaaaaaa todos los mods de la carpeta mods",
+            "Borratodos los mods de la carpeta mods",
             "Descomprime la carpeta descargada y agrega los nuevos mods",
         ],
         descarga: "../data-mc/mods mayo.zip",
