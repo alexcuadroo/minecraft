@@ -119,5 +119,33 @@ button {
 
 button:hover {
     background-color: #a11111;
-    color: white; 
+    color: white;
+}
+#ocultar {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    #versiones {
+        width: 97dvw;
+    }
+    #versiones:hover {
+        box-shadow: none;
+    }
+    #pasado {
+        width: 97dvw;
+    }
+    h1 {
+        font-size: 37px;
+    }
+    footer {
+        font-size: 15px;
+        width: 95dvw;
+    }
+    #mostrar {
+        display: none;
+    }
+    #ocultar {
+        display: block;
+    }
 }
