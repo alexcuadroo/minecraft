@@ -1,21 +1,5 @@
 const tarjetas = [
     {
-        fecha: "PRUEBA RAMA DEV",
-        card1: "actual",
-        pastilla1: "Nuevo",
-        descargarSi: "si",
-        instrucciones: [
-            "Borraaaaaaaa todos los mods de la carpeta mods",
-            "Descomprime la carpeta descargada y agrega los nuevos mods",
-        ],
-        descarga: "../data-mc/mods mayo.zip",
-        notas: [
-            "Se han actualizado todos los mods",
-            "Se han borrado mods no usados e incorporado +4 de estructuras",
-            "Se ha regenerado el mapa explorado",
-        ],
-    },
-    {
         fecha: "5 de mayo de 2024",
         card1: "actual",
         pastilla1: "Nuevo",
