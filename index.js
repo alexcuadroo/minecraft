@@ -5,7 +5,7 @@ const tarjetas = [
         pastilla1: "Nuevo",
         descargarSi: "si",
         instrucciones: [
-            "Borratodos los mods de la carpeta mods",
+            "Borra todos los mods de la carpeta mods",
             "Descomprime la carpeta descargada y agrega los nuevos mods",
         ],
         descarga: "../data-mc/mods mayo.zip",
@@ -60,10 +60,9 @@ function generarTarjeta(tarjeta) {
     `;
 }
 
-// Valida los datos de las tarjetas antes de generar el HTML
+
 const tarjetasValidadas = tarjetas.filter(tarjeta => {
     return tarjeta.fecha && (tarjeta.card1 || tarjeta.card2) && (tarjeta.pastilla1 || tarjeta.pastilla2) && (tarjeta.descargarSi || tarjeta.descargarNo) && tarjeta.instrucciones.length > 0 && tarjeta.descarga && tarjeta.notas.length > 0;
 });
 
-// Genera el HTML para las tarjetas validadas y lo agrega al elemento 'main'
 document.querySelector('main').innerHTML = tarjetasValidadas.map(generarTarjeta).join('');
