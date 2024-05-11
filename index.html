@@ -40,5 +40,22 @@
       </p>
     </footer>
     <script src="index.js"></script>
+    <script>
+      document.getElementById("ip").addEventListener("click", function () {
+        var link = this.textContent; // Obtener el texto del span con id "ip"
+        // Crear un elemento de entrada temporal
+        var tempInput = document.createElement("input");
+        tempInput.value = link;
+        // Agregar el elemento temporal al DOM
+        document.body.appendChild(tempInput);
+        // Seleccionar y copiar el contenido del elemento temporal
+        tempInput.select();
+        document.execCommand("copy");
+        // Eliminar el elemento temporal
+        document.body.removeChild(tempInput);
+        // Informar al usuario que se ha copiado el enlace
+        alert("Enlace copiado al portapapeles");
+      });
+    </script>
   </body>
 </html>

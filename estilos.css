@@ -1,4 +1,3 @@
-/* abeezee-latin-400-normal */
 @font-face {
     font-family: 'ABeeZee';
     font-style: normal;
@@ -116,6 +115,10 @@ main {
 }
 #ip {
     color: var(--color-secundario);
+    cursor: pointer;
+}
+#ip:hover {
+    color: #2323ca;
 }
 
 footer {
