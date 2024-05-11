@@ -1,6 +1,6 @@
 const tarjetas = [
   {
-    fecha: "10 de mayo de 2024 - IP nueva: enx-cirion-2.enx.host:10052",
+    fecha: "10 de mayo de 2024 - IP nueva: noobalex.enxada.host",
     card1: "actual",
     pastilla1: "Nuevo",
     descargarSi: "si",
@@ -11,7 +11,7 @@ const tarjetas = [
     descarga: "../data-mc/mods mayo.zip",
     notas: [
       "Se ha agregado el mod biggerstacks que estaba en la versión anterior",
-      "Nueva ip: enx-cirion-2.enx.host:10052",
+      "Nueva ip: noobalex.enxada.host",
       "Nos mudamos a Brasil"
     ],
   },
