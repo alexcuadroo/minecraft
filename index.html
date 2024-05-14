@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <title>Servidor de Minecraft | Noobs</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,7 +26,9 @@
   <body>
     <header>
       <div class="navbar">
-        <img width="35px" src="./noobs.webp" alt="logo" />
+        <a href="./"
+          ><img class="logo" width="30px" src="./noobs.webp" alt="logo"
+        /></a>
         <div class="title">Minecraft Noobs</div>
       </div>
       <h1 style="text-align: center; padding-top: 10px">Actualizaciones</h1>
@@ -35,7 +37,8 @@
     <footer style="text-align: center">
       <p>
         IP: <span id="ip">noobalex.enxada.host</span>
-        <span id="mostrar">-</span> <br id="ocultar" />With love by Alex Cuadro 💕 2024
+        <span id="mostrar">-</span> <br id="ocultar" />With love by Alex Cuadro
+        💕 2024
       </p>
     </footer>
     <script src="index.js"></script>
@@ -52,9 +55,19 @@
         document.execCommand("copy");
         // Eliminar el elemento temporal
         document.body.removeChild(tempInput);
-        // Informar al usuario que se ha copiado el enlace
-        alert("Enlace copiado al portapapeles");
+      });
+      document.getElementById("ip").addEventListener("click", () => {
+        document.getElementById("miModal").style.display = "block";
+        setTimeout(() => {
+          document.getElementById("miModal").style.display = "none";
+        }, 2500);
       });
     </script>
+    <div id="miModal" class="modal">
+      <div class="modal-contenido">
+        <span class="cerrar-modal" onclick="cerrarModal()">&times;</span>
+        <p>Se ha copiado al portapapeles la IP</p>
+      </div>
+    </div>
   </body>
 </html>
