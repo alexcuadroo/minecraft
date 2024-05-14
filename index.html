@@ -55,9 +55,19 @@
         document.execCommand("copy");
         // Eliminar el elemento temporal
         document.body.removeChild(tempInput);
-        // Informar al usuario que se ha copiado el enlace
-        alert("Enlace copiado al portapapeles");
+      });
+      document.getElementById("ip").addEventListener("click", () => {
+        document.getElementById("miModal").style.display = "block";
+        setTimeout(() => {
+          document.getElementById("miModal").style.display = "none";
+        }, 2500);
       });
     </script>
+    <div id="miModal" class="modal">
+      <div class="modal-contenido">
+        <span class="cerrar-modal" onclick="cerrarModal()">&times;</span>
+        <p>Se ha copiado al portapapeles la IP</p>
+      </div>
+    </div>
   </body>
 </html>
