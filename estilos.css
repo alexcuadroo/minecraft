@@ -157,6 +157,31 @@ footer {
 #ocultar {
     display: none;
 }
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* fondo oscuro transparente */
+    z-index: 1;
+  }
+  
+  .modal-contenido {
+    background-color: var(--color-primario);
+    color: var(--color-secundario);
+    border-radius: 10px;
+    width: 50%;
+    max-width: 400px;
+    margin: 20% auto;
+    padding: 20px;
+  }
+  
+  .cerrar-modal {
+    float: right;
+    cursor: pointer;
+  }
 
 @media screen and (max-width: 600px) {
     #actual {
