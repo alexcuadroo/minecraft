@@ -21,13 +21,13 @@
     />
 
     <link rel="stylesheet" href="estilos.css" />
-    <link rel="icon" href="./faviconB.png" type="image/png" />
+    <link rel="icon" href="./sources/faviconB.png" type="image/png" />
   </head>
   <body>
     <header>
       <div class="navbar">
         <a href="./"
-          ><img class="logo" width="30px" src="./noobs.webp" alt="logo"
+          ><img class="logo" width="30px" src="./sources/noobs.webp" alt="logo"
         /></a>
         <div class="title">Minecraft Noobs</div>
       </div>
@@ -41,7 +41,7 @@
         💕 2024
       </p>
     </footer>
-    <script src="index.js"></script>
+    <script type="module" src="index.js"></script>
     <script>
       document.getElementById("ip").addEventListener("click", function () {
         var link = this.textContent; // Obtener el texto del span con id "ip"
@@ -55,14 +55,15 @@
         document.execCommand("copy");
         // Eliminar el elemento temporal
         document.body.removeChild(tempInput);
-      });
-      document.getElementById("ip").addEventListener("click", () => {
+        // Mostrar el modal de confirmación
         document.getElementById("miModal").style.display = "block";
+        // Ocultar el modal después de 2.5 segundos
         setTimeout(() => {
           document.getElementById("miModal").style.display = "none";
         }, 2500);
       });
     </script>
+
     <div id="miModal" class="modal">
       <div class="modal-contenido">
         <span class="cerrar-modal" onclick="cerrarModal()">&times;</span>
