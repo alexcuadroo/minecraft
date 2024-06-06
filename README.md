@@ -4,4 +4,4 @@ Este repositorio contiene el código fuente del sitio web para nuestro servidor 
 
 ## Disclaimer
 
-Esta web es para aprender html y css, nada más.
+Esta web es para aprender html, css y js, nada más.
