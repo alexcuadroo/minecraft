@@ -1,9 +1,22 @@
 export const tarjetas = [
     {
-        fecha: "10 de mayo de 2024 - IP nueva: noobalex.enxada.host",
+        fecha: "6 de junio de 2024",
         card1: "actual",
         pastilla1: "Nuevo",
         descargarSi: "si",
+        instrucciones: [
+            "Agrega los dos mods en la carpeta mods"
+        ],
+        descarga: "../data-mc/junio.zip",
+        notas: [
+            "Se ha agregado el mod chunk loader para cargar zonas incluso sin jugadores",
+        ],
+    },
+    {
+        fecha: "10 de mayo de 2024 - IP nueva: noobalex.enxada.host",
+        card1: "pasado",
+        pastilla1: "Antiguo",
+        descargarSi: "no",
         instrucciones: [
             "Borra todos los mods de la carpeta mods",
             "Descomprime la carpeta descargada y agrega los nuevos mods"
