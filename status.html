@@ -1,157 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Status</title>
+    <title>Estado del servidor</title>
+    <link rel="icon" href="../sources/fav_verde.webp" type="image/png" />
     <style>
-      body {
-        font-family: system-ui, Arial, sans-serif;
-        background-color: #121216;
-        color: #ffffff;
-        height: 100%;
-        margin: 0;
-      }
-      h1 {
-        color: #2fd335;
-        text-align: center;
-        font-size: 3em;
-      }
-      h2 {
-        color: #2fd335;
-      }
-      main {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      :root {
+        --color-primario: #121214;
+        --color-secundario: #2fd335;
+        --color-terciario: #008705;
+        scrollbar-width: thin;
       }
 
-      .parent {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-        grid-column-gap: 50px;
-        grid-row-gap: 10px;
-        width: 1000px;
-        justify-content: center;
-        align-items: center;
+      body {
+        background-color: #121216;
+        color: white;
+        font-family: system-ui, Arial, sans-serif;
+        height: 100vh;
+        margin: 0;
+        background-color:#051f00;background-image:radial-gradient(#ffffff33 1px,#00091d 1px);background-size:20px 20px
       }
-      .div1,
-      .div2,
-      .div3,
-      .div4 {
-        padding: 20px;
-        border-radius: 20px;
-        box-shadow: 0px 0px 12px #0087049b;
-        background: #000723;
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        padding: 25px;
+        max-width: 1400px;
+        margin: auto;
       }
-      .div1 {
-        grid-area: 1 / 1 / 2 / 2;
+      .navbar .logo {
+        color: #f2f2f2;
+        text-decoration: none;
       }
-      .div2 {
-        grid-area: 2 / 1 / 3 / 2;
+      .logo {
+        aspect-ratio: 1/1;
+        border-radius: 5px;
       }
-      .div3 {
-        grid-area: 3 / 1 / 4 / 2;
+      .logo:hover {
+        box-shadow: 0px 0px 12px #3a5ff4;
       }
-      .div4 {
-        grid-area: 1 / 2 / 4 / 3;
-        text-align: center;
-        height: auto;
+      .navbar {
+        color: #f2f2f2;
+        font-size: 20px;
       }
-      .loader {
+      .title {
+        position: relative;
+        display: inline-block;
+      }
+      .title::after {
+        content: "";
         position: absolute;
-        top: 14%;
-        left: 46%;
-        width: 133px;
-        height: 14px;
-        background: linear-gradient(90deg, #0000, #24d000) left -50px top 0/50px
-          20px no-repeat lightblue;
-        animation: l2 1s infinite linear;
+        width: 100%;
+        height: 2px;
+        background-color: var(--color-secundario);
+        bottom: 8px;
+        left: 0;
       }
-      @keyframes l2 {
-        100% {
-          background-position: right -50px top 0;
+      .card {
+        background-color: #101c0f;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        padding: 25px;
+        top: 20%;
+        text-align: center;
+        position: relative;
+        width: 400px;
+        margin: auto;
+      }
+      .card:hover {
+        box-shadow: 0 0 20px rgba(4, 70, 0, 0.8);
+        transform: scale(1.3);
+        transition: transform 0.8s ease-in-out;
+      }
+      .server-name {
+        font-size: 16px;
+        text-align: left;
+        text-decoration: none;
+        color: var(--color-secundario);
+        margin: 0;
+        h1 {
+          margin: 0;
         }
+      }
+
+      .server-status {
+        display: block;
+        font-size: 14px;
+        color: var(--color-terciario);
+        text-decoration: none;
+        margin: 10px 0;
+        text-align: left;
+      }
+
+      .server-info {
+        display: flex;
+        justify-content: space-between;
+        font-size: 16px;
+      }
+
+      .version {
+        color: #ccc;
+      }
+      .players {
+        color: var(--color-secundario);
+        font-size: 24px;
+        font-weight: bold;
+        position: absolute;
+        right: 83px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .barra {
+        color: #1939c7;
+        font-size: 24px;
+        font-weight: bold;
+        position: absolute;
+        right: 58px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .players-max {
+        color: var(--color-secundario);
+        font-size: 24px;
+        font-weight: bold;
+        position: absolute;
+        right: 17px;
+        top: 50%;
+        transform: translateY(-50%);
       }
       @media (max-width: 600px) {
         body {
-          padding: 10px;
-        }
-        h1 {
-          font-size: 1.6em;
-        }
-        h2 {
-          text-align: center;
-        }
-        #strong {
-          display: none;
-        }
-        .div1 p {
-          text-align: center;
-        }
-        .parent {
-          grid-template-columns: 1fr;
-          grid-template-rows: repeat(1, 1fr);
-        }
-        .div2,
-        .div3 {
-          display: none;
-        }
-        .div4 {
-          grid-area: 4 / 1 / 5 / 2;
           height: auto;
         }
-        .loader {
-          top: 95%;
-          left: 38%;
+        .card {
+          width: 80%;
+          padding: 15px;
+          margin-top: 25%;
         }
+        .card:hover {
+          transform: none;
+          box-shadow: none;
+        }
+        .players-max {right: 17px;}
       }
     </style>
   </head>
   <body>
-    <h1>Estado del Servidor</h1>
-
-    <div class="loader"></div>
-    <main>
-      <div class="parent">
-        <div class="div1">
-          <h2>Conexión 🔗</h2>
-          <p>
-            <strong id="strong">Estado:</strong>
-            <span id="status">Loading...</span>
-          </p>
-        </div>
-        <div class="div2">
-          <h2>Versión</h2>
-          <p>
-            <strong>Versión:</strong>
-            <span id="version">Loading...</span>
-          </p>
-          <p>
-            <strong>Protocolo:</strong>
-            <span id="protocol">Loading...</span>
-          </p>
-        </div>
-        <div class="div3">
-          <h2>Modpack</h2>
-          <p>
-            <strong>Versión:</strong>
-            <span>v.2.1.1</span>
-          </p>
-        </div>
-        <div class="div4">
-          <h2>Jugadores 🕺🏻</h2>
-          <p style="font-size: 2.6em">
-            <strong><span id="players">Loading...</span></strong>
-          </p>
-          <p><strong id="name"></strong></p>
-          <div id="player-list"></div>
-          <!-- Contenedor para la lista de jugadores -->
-        </div>
+    <header>
+      <div class="navbar">
+        <a href="../"
+          ><img
+            class="logo"
+            width="30px"
+            src="../sources/noobs.webp"
+            alt="logo"
+        /></a>
+        <div class="title">Estado del servidor</div>
       </div>
-    </main>
-    <script type="module" src="./api/api.js"></script>
+    </header>
+    <div class="card">
+      <a class="server-name" href="../"><h1>NoobsMC</h1></a>
+      <p id="status" class="server-status">loading</p>
+      <div class="server-info">
+        <span id="version" class="version">loading</span>
+        <span id="players" class="players">loading </span><a class="barra">/</a
+        ><span id="players-max" class="players-max">max</span>
+      </div>
+      <div class="hub">
+        <span id="player-list" class="hub-name">loading</span>
+      </div>
+    </div>
+    <script type="module" src="../api/api.js"></script>
     <script>
       async function obtenerDatosParaStatus() {
         try {
@@ -163,9 +183,9 @@
             : "Apagado";
           document.getElementById("version").textContent =
             data.version.name_clean;
-          document.getElementById("protocol").textContent =
-            data.version.protocol;
+
           document.getElementById("players").textContent = data.players;
+          document.getElementById("players-max").textContent = data.maxPlayers;
           document.getElementById("player-list").textContent =
             data.playerNames.join(", ");
         } catch (error) {

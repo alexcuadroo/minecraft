@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -44,7 +43,7 @@
       </p>
       <p>
         <strong>Jugadores en línea:</strong>
-        <span id="players-online" style="color: #b60000; font-family: monospace"
+        <span id="players" style="color: #b60000; font-family: monospace"
           >Loading...</span
         >
       </p>
@@ -57,7 +56,8 @@
       <p>
         IP: <span id="ip">noobalex.enxada.host</span>
         <span id="mostrar">-</span> <br id="ocultar" />With love by Alex Cuadro
-        💕 2024 - <a href="./status.html" style="color: aqua">Status</a>
+        💕 2024 -
+        <a href="./estado/" style="color: var(--color-secundario)">Estado</a>
       </p>
       <p></p>
     </footer>
@@ -83,26 +83,32 @@
         }, 1500);
       });
     </script>
+    <script type="module" src="./api/api.js"></script>
     <script>
-      async function fetchServerData() {
+      async function obtenerDatosParaStatus() {
         try {
-          const response = await fetch(
-            "https://api.mcsrvstat.us/3/noobalex.enxada.host"
-          );
-          const data = await response.json();
+          const data = await fetchData();
 
+          // Actualizar los elementos HTML con los datos obtenidos
           document.getElementById("status").textContent = data.online
-            ? "En linea"
+            ? "En línea"
             : "Apagado";
-          document.getElementById("players-online").textContent =
-            data.players.online;
+          document.getElementById("players").textContent = data.players;
+            data.playerNames.join(", ");
         } catch (error) {
-          console.error("Error al obtener los datos del servidor:", error);
+          console.error("Error al obtener datos:", error);
         }
       }
 
-      fetchServerData();
-      setInterval(fetchServerData, 45000); // Actualizar cada 45 segundos
+      // Función para actualizar los datos cada 30 segundos
+      function updateDataPeriodically() {
+        fetchData(); // Primera llamada al cargar la página
+        setInterval(fetchData, 30000); // Llama a fetchData cada 30 segundos (30000 milisegundos)
+      }
+
+      // Iniciar la actualización periódica al cargar la página
+
+      obtenerDatosParaStatus();
     </script>
     <div id="miModal" class="modal">
       <div class="modal-contenido">
