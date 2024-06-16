@@ -3,19 +3,20 @@ async function fetchData() {
         const response = await fetch("https://api-mc.vercel.app/api/status"); // Ajusta la ruta según donde esté desplegada tu API
         const data = await response.json();
 
-
-        // Actualizar los elementos HTML con los datos obtenidos
+        // Actualizar los elementos HTML con los datos obtenidos, importante el orden
         document.getElementById("status").textContent = data.online
             ? "En línea"
             : "Apagado";
-        document.getElementById("version").textContent =
-            data.version.name_clean;
-        document.getElementById("protocol").textContent =
-            data.version.protocol;
         document.getElementById("players").textContent =
             data.players;
+        document.getElementById("version").textContent =
+            data.version.name_clean;
+        document.getElementById("players-max").textContent =
+            data.maxPlayers;
         document.getElementById("player-list").textContent =
             data.playerNames.join(", ");
+        document.getElementById("protocol").textContent =
+            data.version.protocol;
     } catch (error) {
         console.error("Error al obtener datos:", error);
     }

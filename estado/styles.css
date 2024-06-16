@@ -1,0 +1,141 @@
+:root {
+    --color-primario: #121214; 
+    --color-secundario: #2fd335;
+    --color-terciario: #008705;
+    scrollbar-width: thin;
+}
+
+body {
+    background-color: #121216;
+    color: white;
+    font-family: system-ui, Arial, sans-serif;
+    height: 100vh;
+    margin: 0;
+    background-color:#051f00;background-image:radial-gradient(#ffffff33 1px,#00091d 1px);background-size:20px 20px
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+    max-width: 1400px;
+    margin: auto;
+    
+}
+.navbar .logo {
+    color: #f2f2f2;
+    text-decoration: none;
+}
+.logo {
+    aspect-ratio: 1/1;
+    border-radius: 5px;
+}
+.logo:hover {
+    box-shadow: 0px 0px 12px #3a5ff4;
+}
+.navbar {
+    color: #f2f2f2;
+    font-size: 20px;
+
+}
+.title {
+    position: relative;
+    display: inline-block;
+}
+.title::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-secundario);
+    bottom: 8px;
+    left: 0;
+}
+.card {
+    background-color: #101c0f;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    padding: 25px;
+    top: 20%;
+    text-align: center;
+    position: relative;
+    width: 400px;
+    margin: auto;
+}
+.card:hover {
+    box-shadow: 0 0 20px rgba(4, 70, 0, 0.8);
+    transform: scale(1.3);
+    transition: transform 0.8s ease-in-out;
+
+}
+.server-name {
+font-size: 16px;
+text-align: left;
+text-decoration: none;
+color: var(--color-secundario);
+margin: 0;
+h1 {
+    margin: 0;
+}
+}
+
+.server-status {
+display: block;
+font-size: 14px;
+color: var(--color-terciario);
+text-decoration: none;
+margin: 10px 0;
+text-align: left;
+}
+
+.server-info {
+display: flex;
+justify-content: space-between;
+font-size: 16px;
+}
+
+.version {
+color: #ccc;
+}
+.players {
+    color: var(--color-secundario);
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    right: 83px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.barra {
+    color: #1939c7;
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.players-max {
+    color: var(--color-secundario);
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    right: 17px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+@media (max-width: 600px) {
+body {
+    height: auto;
+}
+    .card {
+        width: 80%;
+        padding: 15px;
+        margin-top: 25%;
+    }
+    .card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+}
