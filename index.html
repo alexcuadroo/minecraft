@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -43,7 +44,7 @@
       </p>
       <p>
         <strong>Jugadores en línea:</strong>
-        <span id="players" style="color: #b60000; font-family: monospace"
+        <span id="players-online" style="color: #b60000; font-family: monospace"
           >Loading...</span
         >
       </p>
@@ -61,25 +62,6 @@
       <p></p>
     </footer>
     <script type="module" src="index.js"></script>
-    <script src="./api/api.js"></script>
-    <script>
-      async function obtenerDatosParaIndex() {
-        try {
-          const data = await fetchData();
-          document.getElementById("status").textContent = data.online
-            ? "En linea"
-            : "Apagado";
-          document.getElementById("players").textContent = data.players;
-        } catch (error) {
-          console.error("Error al obtener los datos del servidor:", error);
-        }
-      }
-      function updateDataPeriodically() {
-        fetchData(); // Primera llamada al cargar la página
-        setInterval(fetchData, 30000); // Llama a fetchData cada 30 segundos (30000 milisegundos)
-      }
-      obtenerDatosParaIndex();
-    </script>
     <script>
       document.getElementById("ip").addEventListener("click", function () {
         var link = this.textContent; // Obtener el texto del span con id "ip"
@@ -101,7 +83,27 @@
         }, 1500);
       });
     </script>
+    <script>
+      async function fetchServerData() {
+        try {
+          const response = await fetch(
+            "https://api.mcsrvstat.us/3/noobalex.enxada.host"
+          );
+          const data = await response.json();
 
+          document.getElementById("status").textContent = data.online
+            ? "En linea"
+            : "Apagado";
+          document.getElementById("players-online").textContent =
+            data.players.online;
+        } catch (error) {
+          console.error("Error al obtener los datos del servidor:", error);
+        }
+      }
+
+      fetchServerData();
+      setInterval(fetchServerData, 45000); // Actualizar cada 45 segundos
+    </script>
     <div id="miModal" class="modal">
       <div class="modal-contenido">
         <span class="cerrar-modal" onclick="cerrarModal()">&times;</span>
