@@ -1,6 +1,6 @@
 export const tarjetas = [
     {
-        fecha: "6 de junio de 2024",
+        fecha: "6 de junio de 2024 - v.2.1.1",
         card1: "actual",
         pastilla1: "Nuevo",
         descargarSi: "si",
@@ -13,7 +13,7 @@ export const tarjetas = [
         ],
     },
     {
-        fecha: "10 de mayo de 2024 - IP nueva: noobalex.enxada.host",
+        fecha: "10 de mayo de 2024 - v.2.1.0",
         card1: "pasado",
         pastilla1: "Antiguo",
         descargarSi: "no",
@@ -29,7 +29,7 @@ export const tarjetas = [
         ],
     },
     {
-        fecha: "5 de mayo de 2024",
+        fecha: "5 de mayo de 2024 - v.2.0.0",
         card1: "pasado",
         pastilla1: "Antiguo",
         descargarSi: "no",
@@ -45,7 +45,7 @@ export const tarjetas = [
         ],
     },
     {
-        fecha: "1 de mayo de 2024",
+        fecha: "1 de mayo de 2024 - v.1.0.0",
         card2: "pasado",
         pastilla2: "Antiguo",
         descargarNo: "no",

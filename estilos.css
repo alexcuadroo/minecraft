@@ -9,8 +9,9 @@
 :root {
     --color-primario: #121214; 
     --color-secundario: #2fd335;
+    --color-terciario: #008705;
     scrollbar-width: thin;
-    scrollbar-color: var(--color-secundario) var(--color-primario);
+    scrollbar-color: var(--color-terciario) var(--color-primario);
   }
 body {
     margin: 0;
@@ -45,6 +46,7 @@ header {
 .navbar {
     color: #f2f2f2;
     font-size: 20px;
+
 }
 .title {
     position: relative;
@@ -183,7 +185,18 @@ footer {
     float: right;
     cursor: pointer;
   }
-
+    .sticky-banner {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: #008705;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 0 10px rgba(21, 249, 0, 0.591);
+    font-size: 16px;
+    z-index: 10;;
+}
 @media screen and (max-width: 600px) {
     #actual {
         width: 97dvw;
@@ -209,5 +222,8 @@ footer {
     }
     .logo:hover {
         box-shadow: none;
+    }
+    footer {
+        display: none;
     }
 }

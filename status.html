@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Status</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        font-family: system-ui, Arial, sans-serif;
+        background-color: #121216;
+        color: #ffffff;
+        height: 100%;
+        margin: 0;
+        h1 {
+          color: #2fd335;
+          text-align: center;
+          font-size: 3em;
+        }
+        h2 {
+          color: #2fd335;
+        }
+      }
+      main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .parent {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-column-gap: 50px;
+        grid-row-gap: 10px;
+        width: 1000px;
+        justify-content: center; /* Center vertically */
+        align-items: center; /* Center horizontally */
+      }
+      .div1 {
+        grid-area: 1 / 1 / 2 / 2;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0px 0px 12px #0087049b;
+        background: #000723;
+      }
+      .div2 {
+        grid-area: 2 / 1 / 3 / 2;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0px 0px 12px #0087049b;
+        background: #000723;
+      }
+      .div3 {
+        grid-area: 3 / 1 / 4 / 2;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0px 0px 12px #0087049b;
+        background: #000723;
+      }
+      .div4 {
+        grid-area: 1 / 2 / 4 / 3;
+        padding: 20px;
+        text-align: center;
+        height: 200px;
+        border-radius: 20px;
+        box-shadow: 0px 0px 12px #0087049b;
+        background: #000723;
+      }
+      @media (max-width: 600px) {
+        body {
+          padding: 10px;
+        }
+        h1 {
+          font-size: 1.6em;
+        }
+        h2 {
+          text-align: center;
+        }
+        #strong {
+          display: none;
+        }
+        .div1 p {
+          text-align: center;
+        }
+        .parent {
+          grid-template-columns: 1fr;
+          grid-template-rows: repeat(1, 1fr);
+        }
+        .div2,
+        .div3 {
+          display: none;
+        }
+        .div4 {
+          grid-area: 4 / 1 / 5 / 2;
+          height: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Estado del Servidor</h1>
+    <main>
+      <div class="parent">
+        <div class="div1">
+          <h2>Conexión 🔗</h2>
+          <p>
+            <strong id="strong">Estado:</strong>
+            <span id="status">Loading...</span>
+          </p>
+        </div>
+        <div class="div2">
+          <h2>Versión</h2>
+          <p>
+            <strong>Versión:</strong>
+            <span id="version">Loading...</span>
+          </p>
+          <p>
+            <strong>Protocolo:</strong>
+            <span id="protocol">Loading...</span>
+          </p>
+        </div>
+        <div class="div3">
+          <h2>Debug</h2>
+          <p>
+            <strong>Ping:</strong>
+            <span id="debug-ping">Loading...</span>
+          </p>
+        </div>
+        <div class="div4">
+          <h2>Jugadores 🕺🏻</h2>
+          <p style="font-size: 2.6em">
+            <strong> <span id="players-online">Loading...</span></strong>
+          </p>
+        </div>
+      </div>
+    </main>
+    <script>
+      async function fetchServerData() {
+        try {
+          const response = await fetch(
+            "https://api.mcsrvstat.us/3/noobalex.enxada.host"
+          );
+          const data = await response.json();
+
+          document.getElementById("status").textContent = data.online
+            ? "En línea"
+            : "Apagado";
+          document.getElementById("version").textContent = data.version;
+          document.getElementById(
+            "protocol"
+          ).textContent = `Versión ${data.protocol.version} (${data.protocol.name})`;
+
+          document.getElementById("players-online").textContent =
+            data.players.online;
+
+          document.getElementById("debug-ping").textContent = data.debug.ping;
+
+          // Remove loading class after data is fetched
+          document.querySelectorAll(".loading").forEach((element) => {
+            element.classList.remove("loading");
+          });
+        } catch (error) {
+          console.error("Error al obtener los datos del servidor:", error);
+        }
+      }
+
+      fetchServerData();
+      setInterval(fetchServerData, 45000); // Actualizar cada 45 segundos
+    </script>
+  </body>
+</html>
