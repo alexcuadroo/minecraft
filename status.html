@@ -59,6 +59,21 @@
         text-align: center;
         height: auto;
       }
+      .loader {
+        position: absolute;
+        top: 14%;
+        left: 46%;
+        width: 133px;
+        height: 14px;
+        background: linear-gradient(90deg, #0000, #24d000) left -50px top 0/50px
+          20px no-repeat lightblue;
+        animation: l2 1s infinite linear;
+      }
+      @keyframes l2 {
+        100% {
+          background-position: right -50px top 0;
+        }
+      }
       @media (max-width: 600px) {
         body {
           padding: 10px;
@@ -87,11 +102,17 @@
           grid-area: 4 / 1 / 5 / 2;
           height: auto;
         }
+        .loader {
+          top: 95%;
+          left: 38%;
+        }
       }
     </style>
   </head>
   <body>
     <h1>Estado del Servidor</h1>
+
+    <div class="loader"></div>
     <main>
       <div class="parent">
         <div class="div1">
