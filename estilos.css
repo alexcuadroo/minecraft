@@ -2,7 +2,7 @@
     font-family: 'ABeeZee';
     font-style: normal;
     font-display: swap;
-    font-weight: 400;
+    font-weight: 300;
     src: url(https://cdn.jsdelivr.net/fontsource/fonts/abeezee@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/abeezee@latest/latin-400-normal.woff) format('woff');
     unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
   }
@@ -10,24 +10,18 @@
     --color-primario: #121214; 
     --color-secundario: #2fd335;
     --color-terciario: #008705;
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-terciario) var(--color-primario);
+    scrollbar-width: none;
   }
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--color-primario);
+    background-image: linear-gradient(to top, #b61d7e 0%, #5d11c0 100%);
     color: white;
     font-family: ABeeZee;
-}
-
-header {
-    background-color: var(--color-primario);
 }
 .navbar {
     display: flex;
     justify-content: space-between;
-    background-color: var(--color-primario);
     padding: 15px;
     max-width: 1400px;
     margin: auto;
@@ -84,7 +78,7 @@ main {
     font-size: 12px;
 }
 #actual {
-    background-color: #000068;
+    background-color: #000080;
     border-radius: 9px;
     padding: 20px;
     margin: 10px;
@@ -92,7 +86,7 @@ main {
     transition: box-shadow 0.3s ease-in-out;
 }
 #pasado {
-    background-color: #000035;
+    background-color: #000028;
     border-radius: 9px;
     padding: 20px;
     margin: 10px;
@@ -100,7 +94,7 @@ main {
     transition: box-shadow 0.3s ease-in-out;
 }
 #no {
-    background-color: #000068;
+    background-color: #000039;
     border: none;
     color: white; 
     padding: 10px 20px;
@@ -131,10 +125,10 @@ main {
 }
 
 footer {
-    background-color: var(--color-primario);
+    background-color: #070319a9;
     color: #fff;
     text-align: center;
-    padding: 10px 0;
+    padding: 2px 0;
     position: sticky;
     bottom: 0;
     width: 100%;
