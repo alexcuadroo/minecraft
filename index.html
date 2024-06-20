@@ -47,6 +47,11 @@
           >Loading...</span
         >
       </p>
+      <div class="hub">
+        <span id="player-list" style="color: #0003ac; font-family: monospace"
+          >loading</span
+        >
+      </div>
       <p>
         <strong>Modpack:</strong>
         <span style="color: #b60000; font-family: monospace">2.1.1</span>
@@ -94,6 +99,7 @@
             ? "En línea"
             : "Apagado";
           document.getElementById("players").textContent = data.players;
+          document.getElementById("player-list").textContent =
             data.playerNames.join(", ");
         } catch (error) {
           console.error("Error al obtener datos:", error);
