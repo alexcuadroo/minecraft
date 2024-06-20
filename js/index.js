@@ -1,4 +1,4 @@
-import { tarjetas } from './components/data.js';
+import { tarjetas } from '../components/data.js';
 function generarInstrucciones(instrucciones) {
   return instrucciones.map(instruccion => `<li>${instruccion}</li>`).join('');
 }
