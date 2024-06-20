@@ -9,12 +9,12 @@ async function fetchData() {
             : "Apagado";
         document.getElementById("players").textContent =
             data.players;
+        document.getElementById("player-list").textContent =
+            data.playerNames.join(", ");
         document.getElementById("version").textContent =
             data.version.name_clean;
         document.getElementById("players-max").textContent =
             data.maxPlayers;
-        document.getElementById("player-list").textContent =
-            data.playerNames.join(", ");
         document.getElementById("protocol").textContent =
             data.version.protocol;
     } catch (error) {

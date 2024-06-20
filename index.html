@@ -47,6 +47,11 @@
           >Loading...</span
         >
       </p>
+      <div class="hub">
+        <span id="player-list" style="color: #0003ac; font-family: monospace"
+          >loading</span
+        >
+      </div>
       <p>
         <strong>Modpack:</strong>
         <span style="color: #b60000; font-family: monospace">2.1.1</span>
@@ -61,29 +66,9 @@
       </p>
       <p></p>
     </footer>
-    <script type="module" src="index.js"></script>
-    <script>
-      document.getElementById("ip").addEventListener("click", function () {
-        var link = this.textContent; // Obtener el texto del span con id "ip"
-        // Crear un elemento de entrada temporal
-        var tempInput = document.createElement("input");
-        tempInput.value = link;
-        // Agregar el elemento temporal al DOM
-        document.body.appendChild(tempInput);
-        // Seleccionar y copiar el contenido del elemento temporal
-        tempInput.select();
-        document.execCommand("copy");
-        // Eliminar el elemento temporal
-        document.body.removeChild(tempInput);
-        // Mostrar el modal de confirmación
-        document.getElementById("miModal").style.display = "block";
-        // Ocultar el modal después de 1.5 segundos
-        setTimeout(() => {
-          document.getElementById("miModal").style.display = "none";
-        }, 1500);
-      });
-    </script>
-    <script type="module" src="./api/api.js"></script>
+    <script type="module" src="js/index.js"></script>
+    <script type="module" src="js/modal.js"></script>
+    <script type="module" src="api/api.js"></script>
     <script>
       async function obtenerDatosParaStatus() {
         try {
@@ -94,6 +79,7 @@
             ? "En línea"
             : "Apagado";
           document.getElementById("players").textContent = data.players;
+          document.getElementById("player-list").textContent =
             data.playerNames.join(", ");
         } catch (error) {
           console.error("Error al obtener datos:", error);
@@ -112,7 +98,7 @@
     </script>
     <div id="miModal" class="modal">
       <div class="modal-contenido">
-        <span class="cerrar-modal" onclick="cerrarModal()">&times;</span>
+        <span class="cerrar-modal">&times;</span>
         <p>Se ha copiado al portapapeles la IP</p>
       </div>
     </div>
