@@ -1,6 +1,6 @@
-async function fetchData() {
+export async function fetchData() {
     try {
-        const response = await fetch("https://api-mc.vercel.app/api/status"); // Ajusta la ruta según donde esté desplegada tu API
+        const response = await fetch("https://api-rama-test.vercel.app/api/status"); // Ajusta la ruta según donde esté desplegada tu API
         const data = await response.json();
 
         // Actualizar los elementos HTML con los datos obtenidos, importante el orden
