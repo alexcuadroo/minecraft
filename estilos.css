@@ -15,7 +15,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: linear-gradient(to top, #b61d7e 0%, #5d11c0 100%);
+    background-image: linear-gradient(to top, #5022bc 0%, #631db8 50%, #3c0070 100%);
     color: white;
     font-family: ABeeZee;
 }
@@ -78,7 +78,7 @@ main {
     font-size: 12px;
 }
 #actual {
-    background-color: #000080;
+    background-color: #0000b1;
     border-radius: 9px;
     padding: 20px;
     margin: 10px;
@@ -86,7 +86,7 @@ main {
     transition: box-shadow 0.3s ease-in-out;
 }
 #pasado {
-    background-color: #000028;
+    background-color: #000000;
     border-radius: 9px;
     padding: 20px;
     margin: 10px;
@@ -183,7 +183,7 @@ footer {
     position: fixed;
     bottom: 0;
     right: 0;
-    background-color: #008705;
+    background-color: #007dcb;
     color: white;
     padding: 10px 20px;
     border-radius: 10px 10px 0 0;
