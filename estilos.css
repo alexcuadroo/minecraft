@@ -10,6 +10,7 @@
     --color-primario: #121214; 
     --color-secundario: #2fd335;
     --color-terciario: #008705;
+    --color-opcional: #0022cb;
     scrollbar-width: none;
   }
 body {
@@ -18,42 +19,6 @@ body {
     background-image: linear-gradient(to top, #5022bc 0%, #631db8 50%, #3c0070 100%);
     color: white;
     font-family: ABeeZee;
-}
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px;
-    max-width: 1400px;
-    margin: auto;
-}
-.navbar .logo {
-    color: #f2f2f2;
-    text-decoration: none;
-}
-.logo {
-    aspect-ratio: 1/1;
-    border-radius: 5px;
-}
-.logo:hover {
-    box-shadow: 0px 0px 12px #3a5ff4;
-}
-.navbar {
-    color: #f2f2f2;
-    font-size: 20px;
-
-}
-.title {
-    position: relative;
-    display: inline-block;
-}
-.title::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: var(--color-secundario);
-    bottom: 12px;
-    left: 0;
 }
 h1 {
     margin: 0;
@@ -187,7 +152,7 @@ footer {
     color: white;
     padding: 10px 20px;
     border-radius: 10px 10px 0 0;
-    box-shadow: 0 0 10px rgba(21, 249, 0, 0.591);
+    box-shadow: 0 0 10px rgba(0, 249, 207, 0.591);
     font-size: 16px;
     z-index: 10;;
 }
@@ -213,9 +178,6 @@ footer {
     }
     #ocultar {
         display: block;
-    }
-    .logo:hover {
-        box-shadow: none;
     }
     footer {
         display: none;

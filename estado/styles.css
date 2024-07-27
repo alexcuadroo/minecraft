@@ -2,6 +2,7 @@
     --color-primario: #121214; 
     --color-secundario: #2fd335;
     --color-terciario: #008705;
+    --color-opcional: #0022cb;
     scrollbar-width: thin;
 }
 
@@ -11,45 +12,22 @@ body {
     font-family: system-ui, Arial, sans-serif;
     height: 100vh;
     margin: 0;
-    background-color:#051f00;background-image:radial-gradient(#ffffff33 1px,#00091d 1px);background-size:20px 20px
+    padding: 0;
 }
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 25px;
-    max-width: 1400px;
-    margin: auto;
-    
-}
-.navbar .logo {
-    color: #f2f2f2;
-    text-decoration: none;
-}
-.logo {
-    aspect-ratio: 1/1;
-    border-radius: 5px;
-}
-.logo:hover {
-    box-shadow: 0px 0px 12px #3a5ff4;
-}
-.navbar {
-    color: #f2f2f2;
-    font-size: 20px;
-
-}
-.title {
-    position: relative;
-    display: inline-block;
-}
-.title::after {
-    content: "";
+.video-background {
     position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: var(--color-secundario);
-    bottom: 8px;
+    top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    filter: blur(3px); /* Ajusta el nivel de desenfoque aquí */
+}
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Para asegurarse de que el video cubra toda el área */
 }
 .card {
     background-color: #101c0f;
