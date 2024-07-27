@@ -3,23 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Estado del servidor</title>
+    <title>Estado del servidor | Noobs</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="../sources/fav_verde.webp" type="image/png" />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const pageTitle = "Estado del servidor";
+
+        fetch("../components/header.html")
+          .then((response) => response.text())
+          .then((data) => {
+            // Insertar el header en la página
+            document.getElementById("header-container").innerHTML = data;
+            // Establecer el título del header
+            document.getElementById("header-title").innerText = pageTitle;
+          });
+      });
+    </script>
   </head>
   <body>
-    <header>
-      <div class="navbar">
-        <a href="../"
-          ><img
-            class="logo"
-            width="30px"
-            src="../sources/noobs.webp"
-            alt="logo"
-        /></a>
-        <div class="title">Estado del servidor</div>
-      </div>
-    </header>
+    <div class="video-background">
+      <video autoplay muted loop>
+        <source src="/sources/fondo.mp4" type="video/mp4" />
+        Tu navegador no soporta la etiqueta de video.
+      </video>
+    </div>
+    <div id="header-container"></div>
     <div class="card">
       <a class="server-name" href="../"><h1>NoobsMC</h1></a>
       <p id="status" class="server-status">loading</p>

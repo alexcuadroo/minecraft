@@ -22,17 +22,24 @@
 
     <link rel="stylesheet" href="estilos.css" />
     <link rel="icon" href="./sources/fav_verde.webp" type="image/png" />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const pageTitle = "Minecraft Noobs";
+
+        fetch("components/header.html")
+          .then((response) => response.text())
+          .then((data) => {
+            // Insertar el header en la página
+            document.getElementById("header-container").innerHTML = data;
+            // Establecer el título del header
+            document.getElementById("header-title").innerText = pageTitle;
+          });
+      });
+    </script>
   </head>
   <body>
-    <header>
-      <div class="navbar">
-        <a href="./"
-          ><img class="logo" width="30px" src="./sources/noobs.webp" alt="logo"
-        /></a>
-        <div class="title">Minecraft Noobs</div>
-      </div>
-      <h1 style="text-align: center; padding-top: 10px">Actualizaciones</h1>
-    </header>
+    <div id="header-container"></div>
+    <h1 style="text-align: center; padding-top: 10px">Actualizaciones</h1>
     <main></main>
     <div class="sticky-banner">
       <p>
@@ -69,7 +76,7 @@
     <script type="module" src="js/index.js"></script>
     <script type="module" src="js/modal.js"></script>
     <script type="module" src="api/api.js"></script>
-    <script >
+    <script>
       async function obtenerDatosParaStatus() {
         try {
           const data = await fetchData();
