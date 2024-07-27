@@ -1,0 +1,67 @@
+<!-- header.html -->
+<header>
+  <div class="navbar">
+    <a href="../">
+      <img class="logo" width="30px" src="../sources/noobs.webp" alt="logo" />
+    </a>
+    <div class="title" id="header-title">Título por defecto</div>
+  </div>
+</header>
+<style>
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    max-width: 1400px;
+    margin: auto;
+  }
+  .navbar .logo {
+    color: #f2f2f2;
+    text-decoration: none;
+  }
+  .logo {
+    aspect-ratio: 1/1;
+    border-radius: 5px;
+  }
+  .logo:hover {
+    box-shadow: 0px 0px 12px #3a5ff4;
+  }
+  .navbar {
+    color: #f2f2f2;
+    font-size: 20px;
+  }
+  .title {
+    position: relative;
+    display: inline-block;
+    background-image: linear-gradient(
+      to right,
+      var(--color-secundario),
+      var(--color-opcional)
+    );
+    background-size: 200%; /* Doble del ancho para poder desplazar */
+    background-position: 0 0;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-move 3s infinite linear;
+  }
+
+  @keyframes gradient-move {
+    100% {
+      background-position: 0% 0;
+    }
+    50% {
+      background-position: 50% 0;
+    }
+    0% {
+      background-position: 100% 0;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .logo:hover {
+      box-shadow: none;
+    }
+  }
+</style>
