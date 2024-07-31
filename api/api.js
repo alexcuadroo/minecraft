@@ -3,7 +3,13 @@ export async function fetchData() {
         const response = await fetch("https://api-rama-test.vercel.app/api/status");
         // Netlify utiliza esta, Hostinger utiliza la otra, ambas protegidas
         const data = await response.json();
-
+        const encodedHtml = data.motd.html;
+        const decodedHtml = encodedHtml.replace(
+            /\\u([\dA-F]{4})/gi,
+            (match, group) => {
+                return String.fromCharCode(parseInt(group, 16));
+            }
+        );
         // Actualizar los elementos HTML con los datos obtenidos, importante el orden
         document.getElementById("status").textContent = data.online
             ? "En línea"
@@ -18,6 +24,7 @@ export async function fetchData() {
             data.maxPlayers;
         document.getElementById("protocol").textContent =
             data.version.protocol;
+        document.getElementById("motd").innerHTML = decodedHtml;
     } catch (error) {
         console.error("Error al obtener datos:", error);
     }
