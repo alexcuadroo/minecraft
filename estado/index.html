@@ -58,12 +58,24 @@
             : "Apagado";
           document.getElementById("version").textContent =
             data.version.name_clean;
-
           document.getElementById("players").textContent = data.players;
           document.getElementById("players-max").textContent = data.maxPlayers;
           document.getElementById("player-list").textContent =
             data.playerNames.join(", ");
-          document.getElementById("motd").textContent = data.motd.html;
+
+          // Supongamos que este es el string que recibes de la API
+          const encodedHtml = data.motd.html;
+
+          // Decodifica las secuencias Unicode escapadas
+          const decodedHtml = encodedHtml.replace(
+            /\\u([\dA-F]{4})/gi,
+            (match, group) => {
+              return String.fromCharCode(parseInt(group, 16));
+            }
+          );
+
+          // Inserta el HTML decodificado en el documento
+          document.getElementById("motd").innerHTML = decodedHtml;
         } catch (error) {
           console.error("Error al obtener datos:", error);
         }
@@ -71,26 +83,12 @@
 
       // Función para actualizar los datos cada 30 segundos
       function updateDataPeriodically() {
-        fetchData(); // Primera llamada al cargar la página
-        setInterval(fetchData, 30000); // Llama a fetchData cada 30 segundos (30000 milisegundos)
+        obtenerDatosParaStatus(); // Primera llamada al cargar la página
+        setInterval(obtenerDatosParaStatus, 30000); // Llama a obtenerDatosParaStatus cada 30 segundos (30000 milisegundos)
       }
-      // Supongamos que este es el string que recibes de la API
-      const encodedHtml = data.motd.html;
-
-      // Decodifica las secuencias Unicode escapadas
-      const decodedHtml = encodedHtml.replace(
-        /\\u([\dA-F]{4})/gi,
-        (match, group) => {
-          return String.fromCharCode(parseInt(group, 16));
-        }
-      );
-
-      // Inserta el HTML decodificado en el documento
-      document.getElementById("motd").innerHTML = decodedHtml;
 
       // Iniciar la actualización periódica al cargar la página
       updateDataPeriodically();
-      obtenerDatosParaStatus();
     </script>
   </body>
 </html>
