@@ -16,7 +16,7 @@ export async function fetchData() {
       const data = await fetchData();
   
       const encodedHtml = data.motd.html;
-      const decodedHtml = encodedHtml.replace(/\\u([\dA-F]{4})/gi, (match, group) => {
+      const decodedHtml = encodedHtml.replace(/\\u([\dA-F]{4})/gi, (_match, group) => {
         return String.fromCharCode(parseInt(group, 16));
       });
   
