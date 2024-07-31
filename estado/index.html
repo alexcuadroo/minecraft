@@ -75,8 +75,7 @@
         setInterval(fetchData, 30000); // Llama a fetchData cada 30 segundos (30000 milisegundos)
       }
       // Supongamos que este es el string que recibes de la API
-      const encodedHtml =
-        '\\u003Cspan\\u003E\\u003Cspan style="color: #55ff55;"\\u003E¡Vamos al END! \\u003C/span\\u003E\\u003Cspan style="color: #ffff55;"\\u003E| \\u003C/span\\u003E\\u003Cspan style="color: #ff5555;"\\u003EMuy pronto \\u003C/span\\u003E\\u003Cspan style="color: #ffff55;"\\u003E| \\u003C/span\\u003E\\u003Cspan style="color: #55ffff;"\\u003E¡1.20.4¡\\u003C/span\\u003E\\u003C/span\\u003E';
+      const encodedHtml = data.motd.html;
 
       // Decodifica las secuencias Unicode escapadas
       const decodedHtml = encodedHtml.replace(
