@@ -25,7 +25,6 @@ export async function fetchData() {
       document.getElementById("player-list").textContent = data.playerNames.join(", ");
       document.getElementById("version").textContent = data.version.name_clean;
       document.getElementById("players-max").textContent = data.maxPlayers;
-      document.getElementById("protocol").textContent = data.version.protocol;
       document.getElementById("motd").innerHTML = decodedHtml;
     } catch (error) {
       console.error("Error al actualizar el estado:", error);
