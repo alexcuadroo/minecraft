@@ -41,6 +41,11 @@
         <span id="player-list">loading</span>
       </div>
     </div>
+    <br />
+    <br />
+    <div class="card">
+      <p id="motd" class="motd">loading</p>
+    </div>
     <script type="module" src="../api/api.js"></script>
     <script>
       async function obtenerDatosParaStatus() {
@@ -58,6 +63,7 @@
           document.getElementById("players-max").textContent = data.maxPlayers;
           document.getElementById("player-list").textContent =
             data.playerNames.join(", ");
+          document.getElementById("motd").textContent = data.motd.html;
         } catch (error) {
           console.error("Error al obtener datos:", error);
         }
@@ -68,6 +74,20 @@
         fetchData(); // Primera llamada al cargar la página
         setInterval(fetchData, 30000); // Llama a fetchData cada 30 segundos (30000 milisegundos)
       }
+      // Supongamos que este es el string que recibes de la API
+      const encodedHtml =
+        '\\u003Cspan\\u003E\\u003Cspan style="color: #55ff55;"\\u003E¡Vamos al END! \\u003C/span\\u003E\\u003Cspan style="color: #ffff55;"\\u003E| \\u003C/span\\u003E\\u003Cspan style="color: #ff5555;"\\u003EMuy pronto \\u003C/span\\u003E\\u003Cspan style="color: #ffff55;"\\u003E| \\u003C/span\\u003E\\u003Cspan style="color: #55ffff;"\\u003E¡1.20.4¡\\u003C/span\\u003E\\u003C/span\\u003E';
+
+      // Decodifica las secuencias Unicode escapadas
+      const decodedHtml = encodedHtml.replace(
+        /\\u([\dA-F]{4})/gi,
+        (match, group) => {
+          return String.fromCharCode(parseInt(group, 16));
+        }
+      );
+
+      // Inserta el HTML decodificado en el documento
+      document.getElementById("motd").innerHTML = decodedHtml;
 
       // Iniciar la actualización periódica al cargar la página
       updateDataPeriodically();

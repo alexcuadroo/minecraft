@@ -18,6 +18,8 @@ export async function fetchData() {
             data.maxPlayers;
         document.getElementById("protocol").textContent =
             data.version.protocol;
+        document.getElementById("motd").textContent =
+            data.motd.html;
     } catch (error) {
         console.error("Error al obtener datos:", error);
     }
