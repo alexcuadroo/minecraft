@@ -31,9 +31,10 @@ export async function fetchData() {
 }
 
 // Función para actualizar los datos cada 30 segundos
+
 function updateDataPeriodically() {
-    fetchData(); // Primera llamada al cargar la página
-    setInterval(fetchData, 30000); // Llama a fetchData cada 30 segundos (30000 milisegundos)
+    obtenerDatosParaStatus(); // Primera llamada al cargar la página
+    setInterval(obtenerDatosParaStatus, 30000); // Llama a obtenerDatosParaStatus cada 30 segundos (30000 milisegundos)
 }
 
 // Iniciar la actualización periódica al cargar la página
