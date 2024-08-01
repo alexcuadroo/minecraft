@@ -31,47 +31,27 @@
     <div id="header-container"></div>
     <div class="card">
       <a class="server-name" href="../"><h1>NoobsMC</h1></a>
-      <p id="status" class="server-status">loading</p>
+      <p id="status" class="server-status"><img src="../sources/gifop.gif" alt="Loading..." width="15px" /></p>
       <div class="server-info">
-        <span id="version" class="version">loading</span>
-        <span id="players" class="players">loading </span><a class="barra">/</a
-        ><span id="players-max" class="players-max">max</span>
+        <span id="version" class="version"><img src="../sources/gifop.gif" alt="Loading..." width="15px" /></span>
+        <span id="players" class="players"><img src="../sources/gifop.gif" alt="Loading..." width="15px" /></span><a class="barra">/</a
+        ><span id="players-max" class="players-max"><img src="../sources/gifop.gif" alt="Loading..." width="15px" /></span>
       </div>
       <div class="hub">
-        <span id="player-list">loading</span>
+        <span id="player-list"><img src="../sources/gifop.gif" alt="Loading..." width="15px" /></span>
       </div>
     </div>
+    <br />
+    <br />
+    <div class="card">
+      <p id="motd" class="motd"><img src="../sources/gifop.gif" alt="Loading..." width="15px" /></p>
+    </div>
     <script type="module" src="../api/api.js"></script>
-    <script>
-      async function obtenerDatosParaStatus() {
-        try {
-          const data = await fetchData();
+    <script type="module">
+      import { updateDataPeriodically } from "../api/api.js";
 
-          // Actualizar los elementos HTML con los datos obtenidos
-          document.getElementById("status").textContent = data.online
-            ? "En línea"
-            : "Apagado";
-          document.getElementById("version").textContent =
-            data.version.name_clean;
-
-          document.getElementById("players").textContent = data.players;
-          document.getElementById("players-max").textContent = data.maxPlayers;
-          document.getElementById("player-list").textContent =
-            data.playerNames.join(", ");
-        } catch (error) {
-          console.error("Error al obtener datos:", error);
-        }
-      }
-
-      // Función para actualizar los datos cada 30 segundos
-      function updateDataPeriodically() {
-        fetchData(); // Primera llamada al cargar la página
-        setInterval(fetchData, 30000); // Llama a fetchData cada 30 segundos (30000 milisegundos)
-      }
-
-      // Iniciar la actualización periódica al cargar la página
+      // Inicia la actualización periódica al cargar la página
       updateDataPeriodically();
-      obtenerDatosParaStatus();
     </script>
   </body>
 </html>
